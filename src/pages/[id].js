@@ -1,24 +1,26 @@
-import React from 'react'
-import useSWR from 'swr'
-import {useRouter} from 'next/router'
+import React, {useState} from 'react'
+
 import Image from 'next/image'
 import { Container, NavItem } from 'react-bootstrap'
 import styles from '../styles/Home.module.scss';
 
-const Details  = () => {
 
-    const router = useRouter()
+const getCountry = async (id) =>{
+    const res = await fetch(`https://restcountries.com/v2/alpha/${id}`)
 
-    const {id} = router.query
+    return res.json()
+}
 
-    const baseURL = `https://restcountries.com/v2/alpha/${id}`
+const Details  = ({data}) => {
 
-    const {data, errors} = useSWR(id ? baseURL: null)
+   const [borders, setBorders] = useState([])
 
-    if(!data) return <p>Data is Loading please wait</p>
-    if(errors) return <p>No Data please try again</p>
+   const getBorder = async () => {
+    const borders =  data.border.map((border)=> getBorder(border))
+    return borders
+   }
 
-    console.log(data)
+  
 
   return (
     <Container className={styles.details}>
@@ -46,9 +48,7 @@ const Details  = () => {
             </div>
             <div className={styles.detail_Item}>  
             <h6 className={styles.light_fonts}>Language</h6> 
-            {data.languages.map((language, index) =>(
-                <h6 key={index}>{language.name}</h6>
-            )) }
+            {data.languages.map(({name}) => name).join(', ')}
             </div>
 
             <div className={styles.detail_Item}>  
@@ -83,3 +83,17 @@ const Details  = () => {
 }
 
 export default Details 
+
+export const getServerSideProps = async (context) =>{
+
+    const {id} = context.query
+
+    const data = await  getCountry(id)
+   
+
+    return {
+        props:{
+            data
+        }
+    }
+}

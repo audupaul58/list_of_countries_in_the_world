@@ -15,7 +15,7 @@ const Layout = ({children}) => {
         
       </Head>
       <header className={styles.logo}>
-        <Link href='/'>
+        <Link href={'/'}>
           <div className={styles.headea}>
             <Image src={m1} width={40} height={40}/>
             <h5 className={styles.title}>WORLD RANK</h5>

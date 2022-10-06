@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useSWR from 'swr';
 import Table from 'react-bootstrap/Table';
 import styles from './main.module.scss'
 import { FaSort } from "react-icons/fa";
@@ -8,20 +7,11 @@ import SearchItem from '../SearchItem/searchItem';
 import Link from 'next/link'
 import Image from 'next/image';
 
-const Main = () => {
+const Main = ({data}) => {
 
     const [searchFilter, setSearchFilter] = useState('')
     const [value, setValue] = useState()
     const [direction, setDirection] = useState()
-
-    const baseURL = "https://restcountries.com/v2/all"
-    const {data, error} = useSWR(baseURL);
-    if (!data) return <div>Loading .....</div>
-    if (error) return <div>Error Please Try again Later</div>
-
-    console.log('Data', data[0]);
-
-
      // This function helps in sorting the data in the  table base on the rows and value params
 
     const handleSort = ()=>{
