@@ -1,0 +1,66 @@
+@import '../../styles/breakpoints.module';
+
+
+.container{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    .rowCol{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        width: 800px;
+        -webkit-box-shadow: -2px 1px 5px 11px rgba(0,0,0,0.75);
+        -moz-box-shadow: -2px 1px 5px 11px rgba(0,0,0,0.75);
+         box-shadow: -2px 1px 5px 11px rgba(0,0,0,0.75);
+    
+    .top{
+        text-align: center;
+        font-weight: bold;
+        margin-top: 25px;
+    }
+
+
+.table{
+    max-width: 1000px;
+    border-collapse: separate;
+   
+
+
+    .theadi{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    th{
+        font-weight: 800;
+    }
+   
+    .table_row{
+       
+        //display: flex;
+        justify-content: space-between;
+        border-radius: 17px;
+        background: #e0e0e0;
+        box-shadow:  7px 7px 14px #cac7c7,
+                     -7px -7px 14px #ffffff;
+        
+        td{
+            max-width: fit-content;
+            border-spacing: 5em;
+            margin: 15px;
+            padding-bottom: 10px;
+            font-weight: 500;
+            font-size: 1.4rem;
+
+            @include breakpoint(msmall){
+                font-size: clamp(15px, 1.5vw, 1rem)
+            }
+        }
+    }
+}
+
+}
+}

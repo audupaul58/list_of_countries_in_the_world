@@ -1,0 +1,48 @@
+.container {
+    padding: 24px;
+    height: 100vh;
+    padding-top: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+   
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    height: 8vh;
+
+    .headea{
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .themetoggle{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       border: none;
+       font-size: larger;
+       color: rgb(156, 147, 147);
+
+       margin-left: 5px;
+       margin-top: -4px;
+       //font-size: x-large;
+       background-color: transparent;
+       padding: 0;
+      
+      }
+    }
+    }
+  
+  
+  .main {
+    height: 85vh;
+    
+  }
+  
+  
+  
+}
+  

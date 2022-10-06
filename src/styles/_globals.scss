@@ -1,0 +1,54 @@
+@import'../styles/color.module';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&family=Poppins:ital,wght@1,600&family=Roboto:ital,wght@1,700&display=swap');
+
+html,
+ 
+:root{
+  --background-color: $font-color5 ;
+  --font-family: sans-serif;
+  --box-shadow: 0px, 2px, 8px rgba(0, 0, 0, 0.05)
+}
+
+body {
+
+  
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+  background-color : var(--background-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+*{
+  box-sizing: border-box;
+  color: inherit;
+  font:  inherit;
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: RGB(68 51 122);
+  
+  font-size: large;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
