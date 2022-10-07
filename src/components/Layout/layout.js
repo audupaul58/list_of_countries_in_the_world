@@ -40,7 +40,7 @@ const Layout = ({children}) => {
             </div>
           </div>
           <p>List of countries and a brief summary of important places and activities</p>
-           <p> <small>&copy; Copyright 2018 </small> </p>
+           <p> <small>&copy; Copyright 2022/audupaul58 </small> </p>
       </footer>
     </div>
   )
