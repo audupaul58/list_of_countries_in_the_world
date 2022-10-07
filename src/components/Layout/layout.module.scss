@@ -1,11 +1,13 @@
 .container {
-    padding: 24px;
     height: 100vh;
     padding-top: 0;
     display: grid;
     grid-template-columns: 1fr;
    
 .logo{
+    background: rgb(139, 130, 130);
+    padding: 15vh;
+    min-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,30 +18,52 @@
     .headea{
       display: flex;
       align-items: center;
+      justify-content: center;
       cursor: pointer;
+      color: white !important;
+      margin-bottom: 5wh;
 
-      .themetoggle{
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       border: none;
-       font-size: larger;
-       color: rgb(156, 147, 147);
-
-       margin-left: 5px;
-       margin-top: -4px;
-       //font-size: x-large;
-       background-color: transparent;
-       padding: 0;
-      
+      .cls_logo{
+        font-size: xx-large;
       }
+     
+
     }
     }
   
   
   .main {
-    height: 85vh;
+   margin-top: 5vh;
     
+  }
+
+  .footer{
+    justify-content: center;
+   margin-top: 3vh;
+   min-width: 100% !important;
+   background: gray;
+   text-align: center;
+   padding: 10vw;
+   color: white;
+
+   .wrapper {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: none;
+   .contact{
+    display: flex !important;
+    width: 255px;
+    justify-content: space-between;
+    font-weight: 800;
+   
+    
+    .social{
+     font-size: x-large;
+    }
+   }
+  }
+   
   }
   
   

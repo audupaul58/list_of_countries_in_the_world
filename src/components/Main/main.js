@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import Table from 'react-bootstrap/Table';
+import Dynamic from 'next/dynamic';
+
 import styles from './main.module.scss'
 import { FaSort } from "react-icons/fa";
 import FilterItem from '../FilterItem';
 import SearchItem from '../SearchItem/searchItem';
 import Link from 'next/link'
 import Image from 'next/image';
+import Table from 'react-bootstrap/Table';
 
 const Main = ({data}) => {
 
@@ -47,10 +49,10 @@ const Main = ({data}) => {
       <thead>
         <tr>
           <th></th>
-          <th> Countries <FaSort onClick={()=>filterValue('name')} /> </th>
-          <th >Populations<FaSort onClick={()=>filterValue('population')} /></th>
-          <th >Area(Km3)<FaSort onClick={()=>filterValue('area')} /></th>
-          <th >Gini<FaSort onClick={()=>filterValue('gini')} /></th>
+          <th className={styles.t_header_text}> Countries <FaSort onClick={()=>filterValue('name')} /> </th>
+          <th className={styles.t_header_text} >Populations<FaSort onClick={()=>filterValue('population')} /></th>
+          <th className={styles.t_header_text} >Area(Km3)<FaSort onClick={()=>filterValue('area')} /></th>
+          <th className={styles.t_header_text}>Gini<FaSort onClick={()=>filterValue('gini')} /></th>
           
         </tr>
       </thead>

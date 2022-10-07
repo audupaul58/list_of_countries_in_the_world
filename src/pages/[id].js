@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-
+import React, {useEffect, useState} from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { Container, NavItem } from 'react-bootstrap'
 import styles from '../styles/Home.module.scss';
@@ -15,12 +15,17 @@ const Details  = ({data}) => {
 
    const [borders, setBorders] = useState([])
 
+   console.log(data)
    const getBorder = async () => {
-    const borders =  data.border.map((border)=> getBorder(border))
-    return borders
+    const borders = await Promise.all(data.borders ? data.borders.map((border)=> getCountry(border)): data.borders)
+    console.log(borders)
+    setBorders(borders)
    }
 
   
+   useEffect(()=> {
+     {data.borders ? getBorder() : []}
+   }, [])
 
   return (
     <Container className={styles.details}>
@@ -48,14 +53,12 @@ const Details  = ({data}) => {
             </div>
             <div className={styles.detail_Item}>  
             <h6 className={styles.light_fonts}>Language</h6> 
-            {data.languages.map(({name}) => name).join(', ')}
+            {data.languages.length > 1 ? data.languages.map(({name}) => name).join(', ') : data.languages[0].name}
             </div>
 
             <div className={styles.detail_Item}>  
             <h6 className={styles.light_fonts}>Currency</h6> 
-            {data.currencies.map((currency, index) =>(
-                <h6 key={index}>{(currency.name)}</h6>
-            )) }
+            {data.currencies.length > 1 ? data.currencies.map(({name})=> name) : data.currencies[0].name}
             </div>
 
             <div className={styles.detail_Item}>  
@@ -72,9 +75,20 @@ const Details  = ({data}) => {
             <h6 className={styles.light_fonts}>Sub Region</h6> 
                 <h6>{data.subregion}</h6>
             </div>
-
+            
             <div>
-                
+                <hr/>
+            <h7 className={styles.light_fonts}>Border Nations</h7> 
+            <div className={styles.border_con}>
+                 {borders ? borders.map((country, index)=>(
+                    <Link href={`${country.alpha3Code}`} key={index}>
+                    <div className={styles.bod_country}>
+                        <Image src={country.flag} width={150} height={100} />
+                        <h6 className={styles.text}>{country.name}</h6>
+                    </div>
+                    </Link>
+                 )): borders.length == 1 ? borders[0].name : "No border" }
+            </div>
             </div>
        </div>
 

@@ -4,7 +4,7 @@ export default function Home({data}) {
 
   return (
    
-      <Container>
+      <Container >
           <Row>
               <Col> <Main data={data}/></Col>   
           </Row>
