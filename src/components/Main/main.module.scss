@@ -13,10 +13,7 @@
         justify-content: center;
         width: 800px;
         
-        -webkit-box-shadow: -2px 1px 5px 11px rgba(0,0,0,0.75);
-        -moz-box-shadow: -2px 1px 5px 11px rgba(0,0,0,0.75);
-         box-shadow: -2px 1px 5px 11px rgba(0,0,0,0.75);
-         border-radius: 20px;
+        
 
          @include breakpointdown(msmall){
             padding-inline:50px ;
@@ -50,7 +47,8 @@
    
     .table_row{
        
-        padding: 25px;
+        //padding: 25px;
+       
         justify-content: space-between;
         border-radius: 17px;
         background: #e0e0e0;
@@ -61,10 +59,10 @@
         td{
             max-width: fit-content;
             border-spacing: 5em;
-            margin: 15px;
             padding-bottom: 10px;
             font-weight: 500;
             font-size: 1.7rem;
+            
 
             @include breakpoint(msmall){
                 font-size: clamp(17px, 1.5vw, 1rem)
